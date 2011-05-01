@@ -122,14 +122,38 @@ $user_nominations = NominationQuery::create()->findByUserId($user->getId());
 					</div>
 					
 					<div id="extra_school_info" style="display: none;">
-						<b>Hmm?</b>
+						<b>Help us by adding more information on this school</b>
 						<div>
-							<label for="city">City:</label>
-							<input type="text" name="school_city" id="school_city" size="40" maxlength="64">
+							<label for="school_address1">Address 1:</label>
+							<input id="school_address1" type="text" name="school_address1">
 						</div>
 						<div>
-							<label for="state">State:</label>
-							<input type="text" name="school_state" id="school_state" size="40" maxlength="64">
+							<label for="school_address2">Address 2:</label>
+							<input id="school_address2" type="text" name="school_address2">
+						</div>
+						<div>
+							<label for="school_city">City:</label>
+							<input type="text" name="school_city" id="school_city" size="20" maxlength="64">
+						</div>
+						<div>
+							<label for="school_state">State:</label>
+							<input type="text" name="school_state" id="school_state" size="3" maxlength="64">
+						</div>
+						<div>
+							<label for="school_zip">Postal Code:</label>
+							<input id="school_zip" type="text" name="school_zip" size="8" maxlength="64">
+						</div>
+						<div>
+							<label for="school_email">Email Address:</label>
+							<input id="school_email" type="text" name="school_email" size="40 maxlength="64">
+						</div>
+						<div>
+							<label for="school_phone">Phone Number:</label>
+							<input id="school_phone" type="text" name="school_phone" size="14" maxlength="64">
+						</div>
+						<div>
+							<label for="school_fax">Fax Number:</label>
+							<input id="school_fax" type="text" name="school_fax" size="14" maxlength="64">
 						</div>
 					</div>
 					
