@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="wsot" defaultIdMethod="native">
+	<table name="rule_sets" phpName="RuleSet">
+		<column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+		<column name="name" type="varchar" size="255" required="true" />
+		<column name="active" type="boolean" required="true" />
+		<column name="registration" type="varchar" size="64" required="true" />
+		<column name="login" type="varchar" size="64" required="true" />
+		<column name="created_at" type="timestamp" required="true" />
+		<column name="modified_at" type="timestamp" required="true" />
+	</table>
+	<table name="invitations" phpName="Invitation">
+		<column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+		<column name="user_id" type="integer" required="true" />
+		<column name="email" type="varchar" size="255" required="true" />
+		<column name="first_name" type="varchar" size="64" />
+		<column name="last_name" type="varchar" size="64" />
+		<column name="hash" type="varchar" size="255" />
+		<column name="redeemed" type="boolean" required="true" />
+		<column name="created_at" type="timestamp" required="true" />
+		<column name="modified_at" type="timestamp" required="true" />
+		<foreign-key foreignTable="users" phpName="User" refPhpName="Invitation">
+			<reference local="user_id" foreign="id" />
+		</foreign-key>
+	</table>
+	<table name="users" phpName="User">
+		<column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+		<column name="email" type="varchar" size="255" required="true" />
+		<column name="password" type="varchar" size="255" required="true" />
+		<column name="verified" type="boolean" required="true" />
+		<column name="active" type="boolean" required="true" />
+		<column name="terms_accepted" type="boolean" required="true" />
+		<column name="created_at" type="timestamp" required="true" />
+		<column name="modified_at" type="timestamp" required="true" />
+	</table>
+	<table name="profiles" phpName="Profile">
+		<column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+		<column name="user_id" type="integer" required="true" />
+		<column name="salutation" type="varchar" size="64" />
+		<column name="first_name" type="varchar" size="64" />
+		<column name="last_name" type="varchar" size="64" />
+		<column name="gender" type="char" size="1" />
+		<column name="address1" type="varchar" size="255" />
+		<column name="address2" type="varchar" size="255" />
+		<column name="city" type="varchar" size="64" />
+		<column name="state" type="varchar" size="64" />
+		<column name="country" type="varchar" size="64" />
+		<column name="postcode" type="varchar" size="64" />
+		<column name="phone" type="varchar" size="64" />
+		<column name="fax" type="varchar" size="64" />
+		<column name="email" type="varchar" size="255" />
+		<column name="url" type="varchar" size="255" />
+		<column name="created_at" type="timestamp" required="true" />
+		<column name="modified_at" type="timestamp" required="true" />
+		<foreign-key foreignTable="users" phpName="User" refPhpName="Profile">
+			<reference local="user_id" foreign="id" />
+		</foreign-key>
+	</table>
+	<table name="preferences" phpName="Preference">
+		<column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+		<column name="user_id" type="integer" required="true" />
+		<column name="created_at" type="timestamp" required="true" />
+		<column name="modified_at" type="timestamp" required="true" />
+		<foreign-key foreignTable="users" phpName="User" refPhpName="Preference">
+			<reference local="user_id" foreign="id" />
+		</foreign-key>
+	</table>
+	<table name="districts" phpName="District">
+		<column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+		<column name="name" type="varchar" size="255" required="true" />
+		<column name="address1" type="varchar" size="255" />
+		<column name="address2" type="varchar" size="255" />
+		<column name="city" type="varchar" size="64" />
+		<column name="state" type="varchar" size="64" />
+		<column name="country" type="varchar" size="64" />
+		<column name="postcode" type="varchar" size="64" />
+		<column name="phone" type="varchar" size="64" />
+		<column name="fax" type="varchar" size="64" />
+		<column name="email" type="varchar" size="255" />
+		<column name="url" type="varchar" size="255" />
+		<column name="created_at" type="timestamp" required="true" />
+		<column name="modified_at" type="timestamp" required="true" />
+	</table>
+	<table name="schools" phpName="School">
+		<column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+		<column name="district_id" type="integer" required="true" />
+		<column name="name" type="varchar" size="255" required="true" />
+		<column name="address1" type="varchar" size="255" />
+		<column name="address2" type="varchar" size="255" />
+		<column name="city" type="varchar" size="64" />
+		<column name="state" type="varchar" size="64" />
+		<column name="country" type="varchar" size="64" />
+		<column name="postcode" type="varchar" size="64" />
+		<column name="phone" type="varchar" size="64" />
+		<column name="fax" type="varchar" size="64" />
+		<column name="email" type="varchar" size="255" />
+		<column name="url" type="varchar" size="255" />
+		<column name="established" type="date" />
+		<column name="population" type="integer" />
+		<column name="population_date" type="date" />
+		<column name="faculty" type="integer" />
+		<column name="faculty_date" type="date" />
+		<column name="class_size" type="integer" />
+		<column name="class_size_date" type="integer" />
+		<column name="active" type="boolean" required="true" defaultValue="false" />
+		<column name="elementary" type="boolean" required="true" defaultValue="false" />
+		<column name="middle" type="boolean" required="true" defaultValue="false" />
+		<column name="secondary" type="boolean" required="true" defaultValue="false" />
+		<column name="alternative" type="boolean" required="true" defaultValue="false" />
+		<column name="public_school" type="boolean" required="true" defaultValue="false" />
+		<column name="private_school" type="boolean" required="true" defaultValue="false" />
+		<column name="parochial" type="boolean" required="true" defaultValue="false" />
+		<column name="indian_affairs" type="boolean" required="true" defaultValue="false" />
+		<column name="independent" type="boolean" required="true" defaultValue="false" />
+		<column name="magnet" type="boolean" required="true" defaultValue="false" />
+		<column name="charter" type="boolean" required="true" defaultValue="false" />
+		<column name="grade_min" type="varchar" size="64" />
+		<column name="grade_max" type="varchar" size="64" />
+		<column name="created_at" type="timestamp" required="true" />
+		<column name="modified_at" type="timestamp" required="true" />
+		<foreign-key foreignTable="districts" phpName="District" refPhpName="School">
+			<reference local="district_id" foreign="id" />
+		</foreign-key>
+	</table>
+	<table name="nominations" phpName="Nomination">
+		<column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+		<column name="user_id" type="integer" required="true" />
+		<column name="school_id" type="integer" required="true" />
+		<column name="salutation" type="varchar" size="64" />
+		<column name="first_name" type="varchar" size="64" />
+		<column name="last_name" type="varchar" size="64" />
+		<column name="gender" type="char" size="64" />
+		<column name="subject" type="varchar" size="64" />
+		<column name="grade_level" type="varchar" size="64" />
+		<column name="story" type="blob" />
+		<column name="posthumous" type="boolean" required="true" defaultValue="false" />
+		<column name="featured" type="boolean" required="true" defaultValue="false" />
+		<column name="paid" type="boolean" required="true" defaultValue="false" />
+		<column name="created_at" type="timestamp" required="true" />
+		<column name="modified_at" type="timestamp" required="true" />
+		<foreign-key foreignTable="schools" phpName="School" refPhpName="Nomination">
+			<reference local="school_id" foreign="id" />
+		</foreign-key>
+	</table>
+	<table name="unions" phpName="Union">
+		<column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+		<column name="name" type="varchar" size="255" required="true" />
+		<column name="address1" type="varchar" size="255" />
+		<column name="address2" type="varchar" size="255" />
+		<column name="city" type="varchar" size="64" />
+		<column name="state" type="varchar" size="64" />
+		<column name="country" type="varchar" size="64" />
+		<column name="postcode" type="varchar" size="64" />
+		<column name="phone" type="varchar" size="64" />
+		<column name="fax" type="varchar" size="64" />
+		<column name="email" type="varchar" size="255" />
+		<column name="url" type="varchar" size="255" />
+		<column name="members" type="integer" />
+		<column name="established" type="date" />
+		<column name="created_at" type="timestamp" required="true" />
+		<column name="modified_at" type="timestamp" required="true" />
+	</table>
+</database>

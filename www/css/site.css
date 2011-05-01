@@ -1,0 +1,55 @@
+@include('./fonts.css');
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+
+
+
+
+header {
+	height: 120px;
+	background: #ccc url('/img/wsot_logo_158x90.png') 10px 50% no-repeat;
+}
+header #header-container {
+	margin-left: 240px;	
+}
+header #userinfo-container {
+	height: 90px;	
+}
+
+header #userinfo { 
+	float: right;
+	margin: 10px;
+}
+header #navigation {
+	height: 30px;
+}
+
+#topstory-container {
+	height: 360px;
+	background: #444;	
+}
+
+#topstory-container #topstory {
+	height: 100%;
+	margin: 0 60px;
+}
+
+#topstory-container #topstory .left {
+	float: left;
+	height: 100%;
+	width:  75%;
+	background: #fff;	
+}
+
+#topstory-container #topstory .right {
+	float: right;
+	height: 100%;
+	width:  25%;
+}
+
+
